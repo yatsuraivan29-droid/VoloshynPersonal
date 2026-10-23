@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1749a8">
+    <meta name="description" content="Переглядайте актуальні вакансії у Словаччині та залишайте заявку в Voloshyn Personal українською або словацькою.">
+    <meta property="og:title" content="Voloshyn Personal — робота у Словаччині">
+    <meta property="og:description" content="Актуальні вакансії у Словаччині. Зручний пошук і подання заявки онлайн українською та словацькою.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="uk_UA">
+    <link rel="canonical" href="/">
+    <link rel="alternate" hreflang="uk" href="/">
+    <link rel="alternate" hreflang="sk" href="/?lang=sk">
+    <link rel="alternate" hreflang="x-default" href="/">
+    <title>Voloshyn Personal — робота у Словаччині</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skipLink">Перейти до вмісту</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Voloshyn Personal — головна">
+          <span class="brand-mark" aria-hidden="true">V</span>
+          <span class="brand-name">Voloshyn <span>Personal</span></span>
+        </a>
+        <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Відкрити меню" data-i18n-aria="openMenu" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основна навігація" data-i18n-aria="mainNavigation">
+          <a class="nav-link" href="/" data-nav="home" data-i18n="navHome">Головна</a>
+          <a class="nav-link" href="/jobs" data-nav="jobs" data-i18n="navJobs">Вакансії</a>
+          <div class="language-switch" role="group" aria-label="Мова сайту" data-i18n-aria="language">
+            <button type="button" class="language-button is-active" data-language="ua" aria-pressed="true">UA</button>
+            <span aria-hidden="true">/</span>
+            <button type="button" class="language-button" data-language="sk" aria-pressed="false">SK</button>
+          </div>
+          <button class="button button-primary button-small nav-apply" type="button" data-open-application data-i18n="leaveResume">Залишити резюме</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div id="page-content" aria-live="polite"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a class="brand brand-inverse" href="/" aria-label="Voloshyn Personal — головна">
+            <span class="brand-mark" aria-hidden="true">V</span>
+            <span class="brand-name">Voloshyn <span>Personal</span></span>
+          </a>
+          <p data-i18n="footerDescription">Допомагаємо кандидатам знаходити роботу у Словаччині.</p>
+        </div>
+        <div class="footer-contact">
+          <h2 data-i18n="contacts">Контакти</h2>
+          <a data-contact="email" href="mailto:[ЗАПОВНИТИ]">[ЗАПОВНИТИ]</a>
+          <a data-contact="phone" href="tel:[ЗАПОВНИТИ]">[ЗАПОВНИТИ]</a>
+        </div>
+        <div class="footer-social">
+          <h2 data-i18n="followUs">Ми в соцмережах</h2>
+          <div class="social-links">
+            <a data-contact="instagram" href="#" target="_blank" rel="noopener noreferrer" hidden>Instagram</a>
+            <a data-contact="telegram" href="#" target="_blank" rel="noopener noreferrer" hidden>Telegram</a>
+          </div>
+        </div>
+        <button class="footer-privacy" type="button" data-open-privacy data-i18n="privacyPolicy">Політика конфіденційності</button>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span data-current-year></span> Voloshyn Personal</span>
+        <span data-i18n="rightsReserved">Усі права захищено</span>
+      </div>
+    </footer>
+
+    <dialog class="dialog application-dialog" id="application-dialog" aria-labelledby="application-title">
+      <div class="dialog-panel">
+        <button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Закрити" data-i18n-aria="close">×</button>
+        <div class="dialog-heading">
+          <span class="eyebrow" data-i18n="applicationEyebrow">Наступний крок</span>
+          <h2 id="application-title" data-i18n="applicationTitle">Залишити резюме</h2>
+          <p data-i18n="applicationIntro">Заповни форму, і ми зможемо розглянути твою кандидатуру.</p>
+        </div>
+        <div class="application-job" data-application-job hidden></div>
+        <div class="form-alert" role="alert" data-form-error hidden></div>
+        <div class="form-success" role="status" data-form-success hidden></div>
+        <form data-application-form enctype="multipart/form-data" novalidate>
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-grid">
+            <label class="form-field">
+              <span data-i18n="fullName">Ім’я та прізвище <span class="required">*</span></span>
+              <input type="text" name="name" required maxlength="120" autocomplete="name" data-i18n-placeholder="namePlaceholder">
+            </label>
+            <label class="form-field">
+              <span data-i18n="phoneLabel">Номер телефону <span class="required">*</span></span>
+              <input type="tel" name="phone" required maxlength="30" autocomplete="tel" inputmode="tel" placeholder="+421 900 000 000">
+            </label>
+            <label class="form-field">
+              <span data-i18n="emailLabel">Email</span>
+              <input type="email" name="email" maxlength="254" autocomplete="email" placeholder="name@example.com">
+            </label>
+            <label class="form-field">
+              <span data-i18n="directionLabel">Бажаний напрямок роботи</span>
+              <select name="direction" data-i18n-aria="directionLabel">
+                <option value="" data-i18n="directionPlaceholder">Оберіть напрямок</option>
+                <option value="production" data-i18n="categoryProduction">Виробництво</option>
+                <option value="logistics" data-i18n="categoryLogistics">Склади та логістика</option>
+                <option value="automotive" data-i18n="categoryAutomotive">Автомобільна промисловість</option>
+                <option value="hospitality" data-i18n="categoryHospitality">Громадське харчування</option>
+                <option value="other" data-i18n="categoryOther">Інші вакансії</option>
+              </select>
+            </label>
+            <label class="form-field form-field-full">
+              <span data-i18n="commentLabel">Коментар</span>
+              <textarea name="comment" rows="3" maxlength="2000" data-i18n-placeholder="commentPlaceholder"></textarea>
+            </label>
+            <label class="form-field form-field-full">
+              <span data-i18n="resumeLabel">Резюме (PDF або DOCX)</span>
+              <input type="file" name="resume" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+              <span class="field-hint" data-i18n="resumeHint">Необов’язково · до 8 МБ</span>
+            </label>
+            <label class="consent-field form-field-full">
+              <input type="checkbox" name="consent" required>
+              <span data-i18n="consentText">Підтверджую, що ознайомився/-лася з повідомленням про обробку персональних даних. <span class="required">*</span></span>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit" data-submit-button data-i18n="submitApplication">Надіслати заявку</button>
+            <button class="button button-quiet" type="button" data-cancel-dialog data-i18n="cancel">Скасувати</button>
+          </div>
+          <p class="form-footnote" data-i18n="privacyHint">Заявку буде надіслано для розгляду вашої кандидатури. Персональні дані обробляються відповідно до повідомлення про конфіденційність.</p>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog class="dialog privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+      <div class="dialog-panel">
+        <button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Закрити" data-i18n-aria="close">×</button>
+        <span class="eyebrow" data-i18n="privacyEyebrow">Ваші дані</span>
+        <h2 id="privacy-title" data-i18n="privacyTitle">Повідомлення про конфіденційність</h2>
+        <div class="privacy-copy" data-privacy-copy></div>
+        <button class="button button-primary privacy-dismiss" type="button" data-close-dialog data-i18n="understood">Зрозуміло</button>
+      </div>
+    </dialog>
+
+    <dialog class="dialog details-dialog" id="details-dialog" aria-labelledby="details-title">
+      <div class="dialog-panel">
+        <button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Закрити" data-i18n-aria="close">×</button>
+        <div data-job-details></div>
+        <button class="button button-primary details-apply" type="button" data-details-apply data-i18n="applyNow">Відгукнутися</button>
+      </div>
+    </dialog>
+  </body>
+</html>
